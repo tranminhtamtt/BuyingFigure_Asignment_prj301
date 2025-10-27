@@ -12,3 +12,7 @@ EXPOSE 8080
 
 # Run app
 ENTRYPOINT ["java","-jar","app.war"]
+
+FROM tomcat:10.1-jdk17
+COPY target/AttendenceSystem-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+EXPOSE 8080
