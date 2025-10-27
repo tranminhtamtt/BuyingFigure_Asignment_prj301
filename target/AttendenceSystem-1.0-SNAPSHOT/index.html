@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="vi" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paper Models — Mô hình giấy</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{--accent:#ffca28}
+    body{background:linear-gradient(180deg,#0b1220 0%, #071021 100%); color:#e9eef8}
+    .product-card{transition:transform .15s ease, box-shadow .15s ease}
+    .product-card:hover{transform:translateY(-6px); box-shadow:0 8px 30px rgba(0,0,0,.6)}
+    .tag{font-size:.72rem;padding:.15rem .45rem;border-radius:.35rem;background:rgba(255,255,255,.06);}
+    .logo{font-weight:700;color:var(--accent)}
+    .nav-link{color:rgba(233,238,248,.85)}
+    .btn-accent{background:var(--accent);color:#071021}
+    .filter-btn.active{box-shadow:0 0 0 0.15rem rgba(255,202,40,.12)}
+    footer{opacity:.9}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="home"><span class="logo me-2">PaperModels</span><small class="text-muted">Mô hình giấy</small></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+        <!-- Products dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+          <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+            <li><h6 class="dropdown-header">Categories</h6></li>
+            <li><a class="dropdown-item product-cat" data-cat="Anime-Game" href="#">Anime – Game</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Architecture" href="#">Architecture</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Festival" href="#">Festival</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Objects-Toys" href="#">Objects – Toys</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Animals-Plants" href="#">Animals – Plants</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Vehicles" href="#">Vehicles</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Celebrities" href="#">Celebrities</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Minecraft" href="#">Minecraft</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Tools" href="#">Tools</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="COMBO" href="#">COMBO</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Paper-Dolls" href="#">Paper Dolls</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Dollhouses" href="#">Dollhouses</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Cubebox" href="#">Cubebox</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Poster" href="#">Poster</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Postcard" href="#">Postcard</a></li>
+            <li><a class="dropdown-item product-cat" data-cat="Coloring-Pages" href="#">Coloring Pages</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#hot">Hot Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#guides" data-bs-toggle="modal" data-bs-target="#guidesModal">Guides</a></li>
+        <li class="nav-item"><a class="nav-link" href="#community" target="_blank">Community</a></li>
+      </ul>
+
+      <form class="d-flex me-3" role="search">
+        <input id="searchInput" class="form-control form-control-sm me-2" type="search" placeholder="Tìm mẫu..." aria-label="Search">
+      </form>
+
+      <div class="d-flex align-items-center">
+        <button id="favoritesBtn" class="btn btn-outline-light btn-sm me-2" title="Favorites (bấm để xem)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>
+        </button>
+        <a class="btn btn-accent btn-sm" id="loginBtn">Log in</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="py-5 text-center">
+  <div class="container">
+    <h1 class="display-6 mb-2">PaperModels — Thế giới mô hình giấy</h1>
+    <p class="lead text-muted">Mẫu giấy cho Anime, Kiến trúc, Đồ chơi, Xe cộ, Poster và nhiều hơn nữa. Tải xuống, in và gấp!</p>
+  </div>
+</header>
+
+<!-- FILTER BAR -->
+<section class="container mb-4">
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <div class="me-auto">
+      <button class="btn btn-sm btn-light filter-btn active" data-filter="all">All</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Anime-Game">Anime – Game</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Architecture">Architecture</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Festival">Festival</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Objects-Toys">Objects – Toys</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Animals-Plants">Animals – Plants</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Vehicles">Vehicles</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Minecraft">Minecraft</button>
+      <button class="btn btn-sm btn-light filter-btn" data-filter="Coloring-Pages">Coloring Pages</button>
+    </div>
+    <div>
+      <span class="badge bg-secondary">Tổng: <span id="totalCount">0</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS GRID -->
+<main class="container mb-5">
+  <div id="productsGrid" class="row g-3">
+    <!-- sample product card -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card product-card bg-dark text-light h-100" data-category="Anime-Game" data-title="Gundam Paper Model">
+        <img src="https://p16-comment-sign-sg.tiktokcdn.com/tos-alisg-i-zt8igodiya-sg/d8b9dad4fd074131bd51cf2907cbb6d0~tplv-jj85edgx6n-image-origin.jpeg?dr=8569&refresh_token=7e3777c1&x-expires=1792033200&x-signature=hpJtwUEqmOpy4kxO5Mfq48awqJA%3D&t=67a6c45e&ps=a0626fcd&shp=ff37627b&shcp=ff37627b&idc=sg1" class="card-img-top" alt="Gundam">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Gundam Paper Model</h5>
+          <p class="card-text text-muted small">Difficulty: Medium · Pages: 12</p>
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-1">
+              <span class="tag">Anime – Game</span>
+              <span class="tag">PDF</span>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-light fav-toggle" data-id="p1" title="Add to favorites">❤</button>
+              <button class="btn btn-sm btn-accent ms-1">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card product-card bg-dark text-light h-100" data-category="Architecture" data-title="Mini Eiffel Tower">
+        <img src="https://file.hstatic.net/1000231532/file/pc_gundam_build_f202973fae2e4e5e9fbf5e5d5f6be243.jpg" class="card-img-top" alt="Eiffel Tower">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mini Eiffel Tower</h5>
+          <p class="card-text text-muted small">Difficulty: Hard · Pages: 20</p>
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-1">
+              <span class="tag">Architecture</span>
+              <span class="tag">Model</span>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-light fav-toggle" data-id="p2">❤</button>
+              <button class="btn btn-sm btn-accent ms-1">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card product-card bg-dark text-light h-100" data-category="Animals-Plants" data-title="Paper Fox">
+        <img src="https://p19-comment-sign-sg.tiktokcdn.com/tos-alisg-i-zt8igodiya-sg/6d5364f910bd4cb6adece265fcce696b~tplv-jj85edgx6n-image-origin.jpeg?dr=8569&refresh_token=e881b273&x-expires=1792033200&x-signature=qLlPDNoK5T2wN57rXzhJ13HwjQs%3D&t=67a6c45e&ps=a0626fcd&shp=ff37627b&shcp=ff37627b&idc=sg1" class="card-img-top" alt="Paper Fox">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Paper Fox</h5>
+          <p class="card-text text-muted small">Difficulty: Easy · Pages: 4</p>
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-1">
+              <span class="tag">Animals – Plants</span>
+              <span class="tag">Kids</span>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-light fav-toggle" data-id="p3">❤</button>
+              <button class="btn btn-sm btn-accent ms-1">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card product-card bg-dark text-light h-100" data-category="Animals-Plants" data-title="Paper Fox">
+        <img src="https://p19-comment-sign-sg.tiktokcdn.com/tos-alisg-i-zt8igodiya-sg/7fa013fe90ac4df08fb06330d618cdb9~tplv-jj85edgx6n-image-origin.jpeg?dr=8569&refresh_token=925d47dd&x-expires=1792033200&x-signature=ujVOwyjiKeI0fes4pBVgAWG54lA%3D&t=67a6c45e&ps=a0626fcd&shp=ff37627b&shcp=ff37627b&idc=sg1" class="card-img-top" alt="Paper Fox">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Paper Fox</h5>
+          <p class="card-text text-muted small">Difficulty: Easy · Pages: 4</p>
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-1">
+              <span class="tag">Animals – Plants</span>
+              <span class="tag">Kids</span>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-light fav-toggle" data-id="p3">❤</button>
+              <button class="btn btn-sm btn-accent ms-1">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- add more sample cards as needed... -->
+  </div>
+</main>
+
+<!-- HOT PRODUCTS SECTION -->
+<section id="hot" class="container mb-5">
+  <h4 class="mb-3">Hot Products</h4>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-3">
+        <h5>Popular Star Ship</h5>
+        <p class="small text-muted">Được tải nhiều nhất tuần này</p>
+        <a class="btn btn-sm btn-accent">Xem chi tiết</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES MODAL -->
+<div class="modal fade" id="guidesModal" tabindex="-1" aria-labelledby="guidesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="guidesModalLabel">Guides — Câu hỏi thường gặp</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>1. Làm sao để tải và in mẫu?</h6>
+        <p class="small text-muted">Nhấn nút Download bên cạnh mẫu, mở file PDF và in ở chế độ "Actual size" hoặc "100%".</p>
+
+        <h6>2. Mất phí không?</h6>
+        <p class="small text-muted">Một số mẫu miễn phí, số khác là paid. Trang sẽ hiển thị giá khi mẫu có tính phí.</p>
+
+        <h6>3. Làm sao để lưu vào Favorites?</h6>
+        <p class="small text-muted">Bấm biểu tượng trái tim. Bạn cần đăng nhập để đồng bộ trên nhiều thiết bị.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAVORITES SIDEBAR (OFFCANVAS) -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
+  <div class="offcanvas-header">
+    <h5 id="favoritesLabel">Favorites</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="favoritesList">Bạn chưa thêm mục yêu thích nào.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div>
+      <strong>PaperModels</strong> — Mô hình giấy
+      <div class="small text-muted">© 2025 PaperModels. All rights reserved.</div>
+    </div>
+    <div class="d-flex gap-3 align-items-center">
+      <a class="text-decoration-none nav-link" href="#community" target="_blank">Facebook Fanpage</a>
+      <a class="text-decoration-none nav-link" href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple client-side filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('#productsGrid .col-12');
+  const totalCount = document.getElementById('totalCount');
+
+  function updateCount(){
+    const visible = [...cards].filter(c=>c.style.display !== 'none');
+    totalCount.textContent = visible.length;
+  }
+
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c=>{
+        const cat = c.querySelector('.card').dataset.category;
+        if(f==='all' || cat===f) c.style.display = '';
+        else c.style.display = 'none';
+      });
+      updateCount();
+    })
+  })
+
+  // Search
+  document.getElementById('searchInput').addEventListener('input', (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    cards.forEach(c=>{
+      const title = c.querySelector('.card').dataset.title.toLowerCase();
+      if(!q || title.includes(q)) c.style.display = '';
+      else c.style.display = 'none';
+    });
+    updateCount();
+  });
+
+  // Product dropdown quick filter
+  document.querySelectorAll('.product-cat').forEach(a=>{
+    a.addEventListener('click', (ev)=>{
+      ev.preventDefault();
+      const cat = a.dataset.cat;
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      const btn = [...document.querySelectorAll('.filter-btn')].find(b=>b.dataset.filter===cat);
+      if(btn) btn.classList.add('active');
+      cards.forEach(c=>{
+        const ccat = c.querySelector('.card').dataset.category;
+        c.style.display = (ccat===cat)?'':'none';
+      });
+      updateCount();
+    })
+  });
+
+  // Favorites using localStorage
+  const favBtns = document.querySelectorAll('.fav-toggle');
+  function getFavs(){ try { return JSON.parse(localStorage.getItem('pm_favs')||'[]'); } catch(e){return []} }
+  function saveFavs(arr){ localStorage.setItem('pm_favs', JSON.stringify(arr)); }
+  function refreshFavUI(){
+    const favs = getFavs();
+    const list = document.getElementById('favoritesList');
+    if(favs.length===0) list.innerHTML='Bạn chưa thêm mục yêu thích nào.';
+    else list.innerHTML = '<ul class="list-group list-group-flush">'+favs.map(id=>'<li class="list-group-item bg-transparent text-light">'+id+'</li>').join('')+'</ul>';
+    favBtns.forEach(b=>{ b.classList.toggle('btn-danger', favs.includes(b.dataset.id)); })
+  }
+  favBtns.forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const id = b.dataset.id;
+      let favs = getFavs();
+      if(favs.includes(id)) favs = favs.filter(x=>x!==id);
+      else favs.push(id);
+      saveFavs(favs);
+      refreshFavUI();
+    })
+  });
+
+  document.getElementById('favoritesBtn').addEventListener('click', ()=>{
+    const off = new bootstrap.Offcanvas(document.getElementById('favoritesOffcanvas'));
+    refreshFavUI();
+    off.show();
+  });
+
+  // Login simulation
+  const loginBtn = document.getElementById('loginBtn');
+  loginBtn.addEventListener('click', ()=>{
+    const logged = localStorage.getItem('pm_user')==='1';
+    if(!logged){ localStorage.setItem('pm_user','1'); loginBtn.textContent='Account'; loginBtn.classList.remove('btn-accent'); loginBtn.classList.add('btn-outline-light'); }
+    else { localStorage.removeItem('pm_user'); loginBtn.textContent='Log in'; loginBtn.classList.add('btn-accent'); loginBtn.classList.remove('btn-outline-light'); }
+  });
+
+  // initialise
+  updateCount();
+  // keep favorites state in UI
+  refreshFavUI();
+
+</script>
+</body>
+</html>
