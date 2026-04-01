@@ -16,10 +16,11 @@ public class DBConnect {
 
     private static final String SERVER = "PaperModelsDB.mssql.somee.com";
     private static final String DB_NAME = "PaperModelsDB";
-    private static final String USER = "DIEN_LOGIN_SOMEE_CUC_BAN_VAO_DAY";
+    private static final String USER = "tranminhtam10a2";
     private static final String PASS = "22102005tamZZ..";
 
-    private static final String jdbcURL = "jdbc:sqlserver://" + SERVER + ":1433;databaseName=" + DB_NAME + ";encrypt=true;trustServerCertificate=true;";
+    private static final String jdbcURL = "jdbc:sqlserver://" + SERVER + ":1433;databaseName=" + DB_NAME
+            + ";encrypt=true;trustServerCertificate=true;";
 
     public static Connection getConnection() {
         Connection conn = null;
