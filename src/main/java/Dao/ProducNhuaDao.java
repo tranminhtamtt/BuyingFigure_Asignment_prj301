@@ -7,20 +7,9 @@ import java.util.List;
 
 public class ProducNhuaDao {
 
-    private String jdbcURL = "jdbc:sqlserver://localhost:1433;databaseName=PaperModelsDB;encrypt=true;trustServerCertificate=true;";
-    private String jdbcUser = "sa";       // sửa theo user SQL Server của bạn
-    private String jdbcPass = "sa"; // sửa password
-
-    // Lấy Connection
+    // Lấy Connection chung để dễ quản lý
     protected Connection getConnection() {
-        Connection conn = null;
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection(jdbcURL, jdbcUser, jdbcPass);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return conn;
+        return DBConnect.getConnection();
     }
 
     public Product getProductById(int id) {
