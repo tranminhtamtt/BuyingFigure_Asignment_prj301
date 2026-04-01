@@ -3,7 +3,7 @@
   <h1>Paper Models E-Commerce (PRJ301 Assignment)</h1>
   <p>A full-stack Java Web Application for selling Paper Models & Figures. Developed using <b>Java Servlet, JSP, JDBC</b> and <b>SQL Server</b>.</p>
 
-  <a href="https://buyingfigure-asignment-prj301-1.onrender.com/homenhua">
+  <a href="https://buyingfigure-asignment-prj301-1.onrender.com/">
     <img src="https://img.shields.io/badge/Live_Demo-Hosted_on_Render-blue?style=for-the-badge&logo=render" alt="Live Demo">
   </a>
   <a href="#">
@@ -20,7 +20,7 @@ Trang web mô phỏng chức năng của một cửa hàng thương mại điệ
 
 ## 🚀 LIVE DEMO 
 Trang web hiện đã được deploy thực tế lên Cloud:
-👉 **[Nhấp để xem Live Web](https://buyingfigure-asignment-prj301-1.onrender.com/homenhua)**
+👉 **[Nhấp để xem Live Web](https://buyingfigure-asignment-prj301-1.onrender.com/)**
 
 ## 🛠 TECH STACK (Công nghệ sử dụng)
 - **Front-end:** HTML5, CSS3, JSP (JavaServer Pages), Bootstrap.
